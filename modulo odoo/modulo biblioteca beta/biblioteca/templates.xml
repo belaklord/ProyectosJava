@@ -1,0 +1,241 @@
+<openerp>
+    <data>
+    
+    	
+        
+ <!-- accion para la vista listar libros asiciada el modelo biblioteca.libro  -->
+ 
+        <record model="ir.actions.act_window" id="listar_libro_action">
+            <field name="name">Biblioteca</field>
+            <field name="res_model">biblioteca.libro</field>
+            <field name="view_mode">tree,form</field>   		<!--  se hace uso de las vistas tree y form -->
+        </record>
+        
+    <!-- accion para la vista listar tipos de libros asiciada el modelo tipo.libro  -->
+    
+    
+    
+        <record model="ir.actions.act_window" id="listar_tipos_actions">
+        
+        		<field name="name">tipos</field>
+        		<field name="res_model">tipo.libro</field>
+        		<field name="view_mode">tree</field>		<!--  solo usaremos la vista tree en este caso -->
+        		
+        </record>
+        
+        
+         <!-- accion para la vista listar clientes, esta asociada al modelo clientes.tipo  -->
+        
+        <record model="ir.actions.act_window" id="listar_clientes_actions">
+        
+        	<field name="name">clientes</field>
+        	<field name="res_model">cliente.libro</field>
+        	<field name="view_mode">tree,form</field>   		<!--vistas tree y form -->
+        
+        
+        </record>
+        
+        
+         <!-- accion para la vista prestamos, esta asociada al modelo prestamo.libro  -->
+        
+        <record model="ir.actions.act_window" id="listar_prestamos_actions">
+        
+        	<field name="name">Prestamos</field>
+        	<field name="res_model">prestamo.libro</field>
+        	<field name="view_mode">tree,form</field>   		<!--vistas tree y form -->
+        
+        
+        </record>
+        
+        
+        
+                   <record model="ir.ui.view" id="prestamo_tree_view">
+                <field name="name">prestamo.tree.view</field>
+                <field name="model">prestamo.libro</field>
+                <field name="arch" type="xml">
+                    <tree string="prestamo">
+                    <field name="cliente_id"/>
+                        <field name="fecha_prestamo"/>
+                        <field name="devolucion"/>
+                    </tree>
+                </field>
+            </record>
+        
+        <!--  vista de arbol para los clientes  -->
+        
+       	<record model="ir.ui.view" id="cliente_tree_view">
+                <field name="name">cliente.tree.view</field>
+                <field name="model">cliente.libro</field>
+                <field name="arch" type="xml">
+                    <tree string="clientes">
+                        <field name="name"/>
+                        <field name="apellidos"/>
+                        <field name="fecha_nacimiento"  />
+                        <field name="edad"/>
+                        
+                                                	
+                    </tree>
+                </field>
+            </record>
+        
+  
+        
+        <!--  vista tree de los tipos de libro asociada al modelo tipo.libro -->
+        
+        <record model="ir.ui.view" id="view_biblioteca_tipo_libro_tree">
+        <field name="name">view.biblioteca.tipo.libro.tree</field>
+        <field name="model">tipo.libro</field>
+        <field name="arch" type="xml">
+        
+        
+        		<tree string="tipo de libro" editable="top">   <!-- editable="top" hace que el campo se edite en esa misma vista  -->
+        		
+        				<field name="name" />
+        				
+        		
+        		</tree>
+        
+        </field>
+        
+        
+        </record>
+        
+         <!--  vista tree de los  libros asociada al modelo biblioteca.libro -->
+
+         
+        <record model="ir.ui.view" id="view_biblioteca_libro_tree">
+            <field name="name">view.biblioteca.libro.tree</field>
+            <field name="model">biblioteca.libro</field>
+            <field name="arch" type="xml">
+                <tree string="Idea list" >
+                
+                <field name="name" />
+                 <field name="description" />
+                  <field name="date" />
+                    <field name="tipos_id"/>
+                    <field  name="cantidad"/>
+                    
+                </tree>
+            </field>
+        </record>
+        
+        
+        <!--  vista form de los  libros asociada al modelo biblioteca.libro -->
+
+ 
+ 
+        <record model="ir.ui.view" id="view_biblioteca_libro_form">
+            <field name='name'>view.biblioteca.libro.form</field>
+            <field name="model">biblioteca.libro</field>
+            <field name="arch" type="xml">
+                <form string="libro form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>                               
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+  
+                            
+                            <group>
+                            
+                            <field name="autor"/>
+                            
+                            </group>
+                            
+                           <group>
+                           
+                           <field name="tipos_id"/>
+                           
+                           </group>
+                           
+                           <group>
+                           
+                           <field  name="cantidad"/>
+                           </group>
+                           
+                           <group>
+                           
+                           	<field name="prestamo_id"/>
+                           </group>
+                            
+                            
+                        </group>
+                        
+                        <notebook colspan="4">
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+          <!--  vista form de los  clientes asociada al modelo cliente.libro -->
+
+ 
+ 
+        <record model="ir.ui.view" id="view_cliente_form">
+            <field name='name'>view.cliente.form</field>
+            <field name="model">cliente.libro</field>
+            <field name="arch" type="xml">
+                <form string="libro form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>                               
+                                <field name="name"/>
+                            </group>
+                            
+                            <group>
+                            		<field name="apellidos"/>
+                            </group>
+                            
+                            
+                            <group>
+  
+									
+									<field name="fecha_nacimiento" string="Fecha de nacimiento"/>
+									
+									<field name = "edad" string ="edad"/>
+                           
+                            	
+                            
+                            </group>
+                           </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        
+                <record model="ir.ui.view" id="prestamo_form_view">
+                <field name="name">prestamo.form.view</field>
+                <field name="model">prestamo.libro</field>
+                <field name="arch" type="xml">
+                    <form string="prestamo form">
+                    
+                    	<sheet>
+                    		<group colspan="2" col="2">
+                    		
+                    			<field name="fecha_prestamo" />
+                    			<field name="devolucion"/>
+                    			
+                    			<field name="cliente_id"/>
+                    			
+                    			<field name="name"/>
+                    			
+                    		</group>
+                    	
+                    	</sheet>
+                        
+                    </form>
+                </field>
+            </record>
+        
+    
+   
+    </data>
+</openerp>

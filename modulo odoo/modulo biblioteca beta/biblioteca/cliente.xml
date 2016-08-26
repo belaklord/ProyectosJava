@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<<openerp>
+    <data>
+    
+       <!-- accion para la vista listar clientes, esta asociada al modelo clientes.tipo  -->
+        
+        <record model="ir.actions.act_window" id="listar_clientes_actions">
+        
+        	<field name="name">clientes</field>
+        	<field name="res_model">cliente.libro</field>
+        	<field name="view_mode">tree,form</field>   		<!--vistas tree y form -->
+        
+        
+        </record>
+        
+
+        
+          <!--  vista de arbol para los clientes  -->
+        
+       	<record model="ir.ui.view" id="cliente_tree_view">
+                <field name="name">cliente.tree.view</field>
+                <field name="model">cliente.libro</field>
+                <field name="arch" type="xml">
+                    <tree string="clientes">
+                        <field name="name"/>
+                        <field name="apellidos"/>
+                        	
+                    </tree>
+                </field>
+            </record>
+            
+            
+             <!--  vista form de los  clientes asociada al modelo cliente.libro -->
+
+ 
+ 
+        <record model="ir.ui.view" id="view_cliente_form">
+            <field name='name'>view.cliente.form</field>
+            <field name="model">cliente.libro</field>
+            <field name="arch" type="xml">
+                <form string="libro form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>                               
+                                <field name="name"/>
+                            </group>
+                            
+                            <group>
+                            		<field name="apellidos"/>
+                            </group>
+                           </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+    
+    
+    
+    
+    </data>
+</openerp>

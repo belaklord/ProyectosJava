@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+
+<data>
+
+<!-- lista de todos los menus de la aplicacion  -->
+
+
+<!--  menu principal -->
+
+		<menuitem 
+    	 id="menu_root_biblioteca"  
+    	 name="Biblioteca" 
+    	 sequence="30" />
+ 
+ <!-- submenu del principal -->
+        <menuitem 
+        id="menu_root_biblioteca_libro_view"  
+        name="Libros" 
+        parent="menu_root_biblioteca"/>
+        
+ <!-- menu listar libros dentro del menu libros -->
+        <menuitem id="menu_root_biblioteca_listar_libro" 
+         name="Listar libros" 
+         parent="menu_root_biblioteca_libro_view" 
+         action="listar_libro_action" />
+        
+  <!--  menu listar tipos de libros dentro del menu libros -->    
+        <menuitem 
+        id="menu_root_biblioteca_tipo_libro"  
+        name="listar tipos" 
+        parent="menu_root_biblioteca_libro_view" 
+        action="listar_tipos_actions"/>
+        
+        
+ <!--  menu listar clientes dentro del menu libros -->       
+        <menuitem
+        id="menu_root_cliente"
+        name="listar clientes"
+        parent="menu_root_biblioteca_libro_view"
+        action="listar_clientes_actions"
+        />
+ <!--  menu listar prestamos dentro del menu libros --> 
+        <menuitem
+        id="menu_root_prestamo"
+        name="prestamos"
+        parent="menu_root_biblioteca_libro_view"
+        action="listar_prestamos_actions"
+        />
+        
+        
+      
+        
+
+</data>
+
+
+</openerp>
+ 

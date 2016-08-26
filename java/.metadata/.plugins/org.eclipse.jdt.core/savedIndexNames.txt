@@ -1,0 +1,9 @@
+INDEX VERSION 1.126+C:\Users\belaklord\Dropbox\java\.metadata\.plugins\org.eclipse.jdt.core
+2393563997.index
+2576840362.index
+3318714699.index
+1512568733.index
+736639715.index
+1393164717.index
+1514523766.index
+759363321.index

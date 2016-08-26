@@ -1,0 +1,49 @@
+ 
+ul.nav-pills >li{
+
+
+    display: inline-block;
+    list-style: none;
+    margin-top: 3%;
+    margin-right: 3%;
+    
+
+    
+}
+
+
+
+         .imagen-blog{
+
+        width: 600px;
+        height: 500px;
+        margin-left: 10%;
+        
+
+    }
+
+
+    div.contenido{
+       margin-left: 20%;
+     
+        width: 66%;
+        
+       
+
+    }
+
+    .pagination{
+
+        margin: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        
+       
+    }
+
+    p{
+
+        text-align: justify;
+    }
+
+    
